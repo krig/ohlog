@@ -7,9 +7,10 @@
 today=$(date "+%-d %B, %Y")
 subject="It's $today - How did your day go?"
 body="Just reply to this email with your entry."
-email="$1"
-sendmail "$email" <<EOF
+to="$1"
+sendmail -t <<EOF
 Subject: $subject
+To: $to
 
 $body
 EOF
