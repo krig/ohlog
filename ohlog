@@ -8,4 +8,9 @@ today=$(date "+%-d %B, %Y")
 subject="It's $today - How did your day go?"
 body="Just reply to this email with your entry."
 email="$1"
-echo $body | /bin/mail -s "$subject" "$email"
+from="k@kri.gs"
+sendmail -f "$from" "$email" <<EOF
+Subject: $subject
+
+$body
+EOF
